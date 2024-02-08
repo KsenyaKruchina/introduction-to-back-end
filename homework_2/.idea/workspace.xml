@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c519089c-cbdb-44f7-a0e8-89a266803ab1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/homework_2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/templates/shop/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/templates/shop/product-details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw_2/.idea/hw_2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw_2/movie/templates/movie/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw_2/movie/templates/movie/movie_details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw_2/movie/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +40,7 @@
     "Python.models.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/senia/OneDrive - УО “Алматы Менеджмент Университет”/Рабочий стол/almau-back-end/homework_2",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
