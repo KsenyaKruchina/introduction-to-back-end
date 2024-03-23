@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo LIST</title>
+</head>
+<body>
+    <form action="/things/" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="field-wrapper">
+                {{ field.label_tag }} {{ field }}
+                {% if field.errors %}
+                    <div class="text-danger">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div>
+            <button type="submit">Create ToDo</button>
+        </div>
+    </form>
+    <h1>ToDo</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if things %}
+        <ol>
+        {% for thing in things %}
+            <li>{{ thing.title }} -- {{ thing.status }} <a href="/things/{{ thing.id }}/delete">
+                <button>Delete</button>
+            </a>
+            </li>
+        {% endfor %}
+        </ol>
+    {% else %}
+        <p>ToDo's Not Found</p>
+    {% endif %}
+</body>
+</html>

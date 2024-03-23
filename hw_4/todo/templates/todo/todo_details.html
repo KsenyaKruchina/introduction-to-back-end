@@ -1,0 +1,40 @@
+{% load bootstrap4 %}
+{% load static %}
+<html>
+<head>
+    <title>{{ thing.title }}</title>
+    {% bootstrap_css %}
+    <style>
+        body {
+            background-color: #e7f0f9;
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                 {% include 'header.html' %}
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="mt-5">ToDo details</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ thing.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ thing.description }}</h6>
+                <p class="card-text">Due Date: {{ thing.due_date }}</p>
+                {% if thing.status %}
+                    <p class="card-text">Status: <span class="badge badge-success">Completed</span></p>
+                {% else %}
+                    <p class="card-text">Status: <span class="badge badge-danger">Not completed</span></p>
+                {% endif %}
+                <a href="{% url 'edit_todo' pk=thing.id %}"><button class="btn btn-primary" type="submit">Edit</button></a>
+            </div>
+        </div>
+    </div>
+    {% bootstrap_javascript %}
+</body>
+</html>

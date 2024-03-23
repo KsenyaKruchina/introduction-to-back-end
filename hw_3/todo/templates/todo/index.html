@@ -1,0 +1,76 @@
+{% load bootstrap4 %}
+<html>
+<head>
+    <title>ToDo List</title>
+    {% bootstrap_css %}
+    <style>
+        body {
+            background-color: #e7f0f9;
+            padding-top: 50px;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .task-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+        .task-item:hover {
+            background-color: #e9ecef;
+        }
+        .task-title {
+            font-weight: bold;
+        }
+        .delete-btn {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/things" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="invalid-feedback">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Create ToDo</button>
+        </form>
+        <h1 class="mt-4">ToDo List</h1>
+        {% if error %}
+            <p class="text-danger">{{ error }}</p>
+        {% endif %}
+        {% if things %}
+            <ol class="mt-2">
+                {% for thing in things %}
+                    <li class="task-item" style="color: {% if thing.status %}green{% else %}red{% endif %}">
+                        <span class="task-title">{{ thing.title }}</span> -- {{ thing.description }} -- {{ thing.status }}
+                        <a href="/things/{{ thing.id }}/details" class="success-btn">
+                            <button class="btn btn-success">Details</button>
+                        </a>
+                        <a href="/things/{{ thing.id }}/delete" class="delete-btn">
+                            <button class="btn btn-danger">Delete</button>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <p>No tasks found.</p>
+        {% endif %}
+    </div>
+    {% bootstrap_javascript %}
+</body>
+</html>
+

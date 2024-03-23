@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load bootstrap4 %}
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>{{ thing.title }}</title>
+    {% bootstrap_css %}
+    <style>
+        body {
+            background-color: #e7f0f9;
+            padding-top: 50px;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div class="container">
+        <h1 class="mt-5">ToDo details</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ things.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ things.description }}</h6>
+                <p class="card-text">Due Date: {{ things.due_date }}</p>
+                {% if things.status %}
+                    <p class="card-text">Status: <span class="badge badge-success">Completed</span></p>
+                {% else %}
+                    <p class="card-text">Status: <span class="badge badge-danger">Not completed</span></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% bootstrap_javascript %}
 </body>
 </html>
